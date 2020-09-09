@@ -5,6 +5,9 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import home from './pages/home';
+import errorpage from './pages/error';
+import profile from './pages/profile';
+
 
 
 const routes =
@@ -14,8 +17,8 @@ const routes =
         <Switch>
           <Route path="/" component={home} exact={true} />
           <Route path="/home" component={home} />
-
-          <Route path="" component={Error} />
+          <Route path="/profile" component={profile} />
+          <Route path="/" component={errorpage} />
         </Switch>
       </div>
     </BrowserRouter>
