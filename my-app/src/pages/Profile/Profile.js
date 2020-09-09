@@ -4,16 +4,16 @@ import UpdateProfileButton from "./Profile Components/UpdateProfileButton";
 import ProfileEditRender from "./Profile Components/ProfileEditRender";
 import Mock from "../../data/MockUser.json"
 
-const HomeProfile = (props) => {
+const HomeProfile = () => {
   let [edit, setEdit] = useState(false);
-  let profilePicture;
-  let firstName;
-  let lastName;
-  let address;
-  let postTown;
-  let postNumber;
-  let phoneNumber;
-  let email;
+  let profilePicture = "http://dummyimage.com/124x214.jpg/dddddd/000000"
+  let firstName
+  let lastName
+  let address
+  let postTown
+  let postNumber
+  let phoneNumber
+  let email
 
   let [profile, setProfile] = useState([
     {
@@ -27,19 +27,18 @@ const HomeProfile = (props) => {
       email,
     },
   ]);
-  const showProfile = () => {
-    return (
-      <ProfileRender
-        picture={profile.profilePicture}
-        firstName={profile.firstName}
-        lastName={profile.lastName}
-        telephoneNumber={profile.phoneNumber}
-        email={profile.email}
-        address={profile.address}
-        postNumber={profile.postNumber}
-        postTown={profile.postTown}
-      />
-    );
+  let updateProfile = (e) => {
+    e.preventDefault();
+    alert("Profil har uppdaterats");
+    setProfile({
+      firstName: e.target.elements.firstNameInput.value,
+      lastName: e.target.elements.lastNameInput.value,
+      address: e.target.elements.adressInput.value,
+      postTown: e.target.elements.postTownInput.value,
+      postNumber: e.target.elements.postNumberInput.value,
+      phoneNumber: e.target.elements.telephoneNumberInput.value,
+      email: e.target.elements.emailInput.value,
+    });
   };
   const turnOnEdit = () => {
     const current = edit;
@@ -49,14 +48,14 @@ const HomeProfile = (props) => {
   if (edit) {
     return (
       <div>
-        <ProfileEditRender showProfile={showProfile} setProfile= {setProfile} />
+        <ProfileEditRender profile={profile} updateProfile={updateProfile}/>
         <UpdateProfileButton edit={turnOnEdit} />
       </div>
     );
   }
   return (
     <div>
-      <ProfileRender showProfile={showProfile} />
+      <ProfileRender profile={profile}/>
       <UpdateProfileButton edit={turnOnEdit} />
     </div>
   );

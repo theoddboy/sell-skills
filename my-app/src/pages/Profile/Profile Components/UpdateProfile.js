@@ -2,24 +2,10 @@ import React from "react";
 import "../UserSettings css/UserProfile.css";
 import UserProfile from "./UserProfile";
 
-const Profile = (props) => {
+const UpdateProfile = (props) => {
   let updateProfile = (e) => {
     e.preventDefault();
     alert("Profil har uppdaterats");
-    if (e.target.elements.profilePictureInput.files.length !== 0) {
-      props.setProfile({
-        profilePicture: URL.createObjectURL(
-          e.target.elements.profilePictureInput.files[0]
-        ),
-        firstName: e.target.elements.firstNameInput.value,
-        lastName: e.target.elements.lastNameInput.value,
-        address: e.target.elements.adressInput.value,
-        postTown: e.target.elements.postTownInput.value,
-        postNumber: e.target.elements.postNumberInput.value,
-        phoneNumber: e.target.elements.telephoneNumberInput.value,
-        email: e.target.elements.emailInput.value,
-      });
-    } else {
       props.setProfile({
         firstName: e.target.elements.firstNameInput.value,
         lastName: e.target.elements.lastNameInput.value,
@@ -29,7 +15,6 @@ const Profile = (props) => {
         phoneNumber: e.target.elements.telephoneNumberInput.value,
         email: e.target.elements.emailInput.value,
       });
-    }
   };
 
   let showPreview = (e) => {
@@ -49,4 +34,4 @@ const Profile = (props) => {
     />
   );
 };
-export default Profile;
+export default UpdateProfile;

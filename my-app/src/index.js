@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
 import home from './pages/home';
 import errorpage from './pages/error';
-import profile from './pages/profile';
+import profile from './pages/Profile/Profile';
 
 
 
